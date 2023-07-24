@@ -12,7 +12,7 @@ export default function handler(
   const jobId = parseInt(id as string, 10);
 
   // number of jobs to define upper border
-  const jobNumber = Object.keys(JOBS).length;
+  const jobNumber = Object.keys(JOBS).length + 1;
 
   // validation: number && >= 1 && <= #jobs
   if (isNaN(jobId) || jobId < 1 || jobId >= jobNumber) {
