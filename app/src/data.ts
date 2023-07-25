@@ -6,6 +6,7 @@ export const JOBS: Record<number, Job> = {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
     percent: 100,
+    logoURL: 'https://www.chem.uzh.ch/static/events/doktag2019/images/UZH_logo.jpg',
   },
   2: {
     id: 2,
@@ -14,6 +15,7 @@ export const JOBS: Record<number, Job> = {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
     percent: 20,
+    logoURL: 'https://www.chem.uzh.ch/static/events/doktag2019/images/UZH_logo.jpg',
   },
   3: {
     id: 3,
@@ -22,6 +24,7 @@ export const JOBS: Record<number, Job> = {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
     percent: 80,
+    logoURL: 'https://www.chem.uzh.ch/static/events/doktag2019/images/UZH_logo.jpg',
   },
   4: {
     id: 4,
@@ -30,5 +33,6 @@ export const JOBS: Record<number, Job> = {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
     percent: 80,
+    logoURL: 'https://www.chem.uzh.ch/static/events/doktag2019/images/UZH_logo.jpg',
   },
 }

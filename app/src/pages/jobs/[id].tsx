@@ -1,6 +1,8 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import Image from 'next/image'
+
 function Details() {
   const router = useRouter();
   const { id } = router.query; // Extract the dynamic 'id' parameter from the router
@@ -34,6 +36,14 @@ function Details() {
             <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
             <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
             <p>{"Employment rate: " + job.percent + "%"}</p>
+            <div className="flex flex-wrapjustify-center">
+              <Image
+                src={job.logoURL}
+                width={190}
+                height={80}
+                alt={"Logo from " + job.company}
+              />
+            </div>
           </div>
         </div>
         <Link href="/" passHref>

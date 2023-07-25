@@ -4,4 +4,5 @@ type Job = {
   company: string
   description: string
   percent: number
+  logoURL: string
 }
