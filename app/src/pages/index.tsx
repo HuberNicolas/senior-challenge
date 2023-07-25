@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-
+import Link from 'next/link'
 // own fetcher
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -30,9 +30,9 @@ function Index() {
       <div className="flex flex-wrap">
         {jobList.map((job) => (
           <div className="w-full max-w-sm p-4 m-auto mt-4 border rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" key={"job" + job.id}>
-            <a href={"/jobs/" + job.id}>
+            <Link href={"/jobs/" + job.id} passHref>
               <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{job.title}</h5>
-            </a>
+            </Link>
             <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
             <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
             <p>{"Employment rate: " + job.percent + "%"} </p>
