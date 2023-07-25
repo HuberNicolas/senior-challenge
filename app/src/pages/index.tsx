@@ -1,6 +1,8 @@
 import useSWR from 'swr'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+
 // own fetcher
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -18,6 +20,12 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 // }, [data, maxPercent])
 
 function Index() {
+
+  const [occupation, setOccupation] = useState(100);
+
+  useEffect(() => {
+    console.log(occupation);
+  })
 
   // access data via SWR from api using defined fetcher
   const { data: jobs } = useSWR<Job[]>('/api/jobs', fetcher)
@@ -47,6 +55,21 @@ function Index() {
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        <label
+          htmlFor="occupation-input"
+          className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
+        >
+          Occupation Rate
+        </label>
+        <input
+          type="range"
+          className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
+          id="occupation-input"
+          value={occupation}
+          onChange={(e) => setOccupation(parseInt(e.target.value, 10))}
+        />
       </div>
     </div>
   )
