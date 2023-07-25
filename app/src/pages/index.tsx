@@ -24,41 +24,49 @@ function Index() {
 
   return (
     <div>
-      <h1 className="max-w-sm p-4 m-auto mb-2 text-2xl font-bold">Jobs List</h1>
-      <div className="flex flex-wrap">
-        {filteredJobs.map((job) => (
-          <div className="w-full max-w-sm p-4 m-auto mt-4 border rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" key={"job" + job.id}>
-            <Link href={"/jobs/" + job.id} passHref>
-              <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{job.title}</h5>
-            </Link>
-            <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
-            <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
-            <p>{"Employment rate: " + job.percent + "%"} </p>
-            <div className="flex flex-wrapjustify-center">
-              <Image
-                src={job.logoURL}
-                width={190}
-                height={80}
-                alt={"Logo from " + job.company}
-              />
-            </div>
+      <nav id="navbar" className="bg-gray-400">
+        <div className="w-full flex justify-center">
+          <div className="w-1/5 mx-auto">
+            <label
+              htmlFor="occupation-input"
+              className=""
+            >
+              Set maximal Occupation Rate: {maxPercent}
+            </label>
+            <input
+              type="range"
+              className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
+              id="occupation-input"
+              value={maxPercent}
+              onChange={(e) => setMaxPercent(parseInt(e.target.value, 10))}
+
+            />
           </div>
-        ))}
-      </div>
-      <div>
-        <label
-          htmlFor="occupation-input"
-          className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
-        >
-          Occupation Rate
-        </label>
-        <input
-          type="range"
-          className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
-          id="occupation-input"
-          value={maxPercent}
-          onChange={(e) => setMaxPercent(parseInt(e.target.value, 10))}
-        />
+
+        </div>
+      </nav>
+      <div id="container">
+        <h1 className="flex flex-wrap justify-center text-2xl font-bold">Jobs List</h1>
+        <div className="flex flex-wrap">
+          {filteredJobs.map((job) => (
+            <div className="w-full max-w-sm p-4 m-auto mt-4 border rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" key={"job" + job.id}>
+              <Link href={"/jobs/" + job.id} passHref>
+                <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{job.title}</h5>
+              </Link>
+              <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
+              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
+              <p>{"Employment rate: " + job.percent + "%"} </p>
+              <div className="flex flex-wrapjustify-center">
+                <Image
+                  src={job.logoURL}
+                  width={190}
+                  height={80}
+                  alt={"Logo from " + job.company}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
