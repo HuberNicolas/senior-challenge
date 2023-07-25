@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
+import Link from 'next/link';
 function Details() {
   const router = useRouter();
   const { id } = router.query; // Extract the dynamic 'id' parameter from the router
@@ -35,11 +36,11 @@ function Details() {
             <p>{"Employment rate: " + job.percent + "%"}</p>
           </div>
         </div>
-        <a href="/">
+        <Link href="/" passHref>
           <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Back
           </button>
-        </a>
+        </Link>
       </div>
     );
 
