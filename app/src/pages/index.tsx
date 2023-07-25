@@ -51,19 +51,21 @@ function Index() {
           {filteredJobs.map((job) => (
             <div className="w-full max-w-sm p-4 m-auto mt-4 border rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" key={"job" + job.id}>
               <Link href={"/jobs/" + job.id} passHref>
-                <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{job.title}</h5>
+                <div>
+                  <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{job.title}</h5>
+                  <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
+                  <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
+                  <p>{"Employment rate: " + job.percent + "%"} </p>
+                  <div className="flex flex-wrapjustify-center">
+                    <Image
+                      src={job.logoURL}
+                      width={190}
+                      height={80}
+                      alt={"Logo from " + job.company}
+                    />
+                  </div>
+                </div>
               </Link>
-              <p className="font-normal text-gray-900 dark:text-gray-600">{job.company}</p>
-              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{job.description}</p>
-              <p>{"Employment rate: " + job.percent + "%"} </p>
-              <div className="flex flex-wrapjustify-center">
-                <Image
-                  src={job.logoURL}
-                  width={190}
-                  height={80}
-                  alt={"Logo from " + job.company}
-                />
-              </div>
             </div>
           ))}
         </div>
